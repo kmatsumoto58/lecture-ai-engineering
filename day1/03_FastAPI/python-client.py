@@ -8,7 +8,7 @@ import time
 class LLMClient:
     """LLM API クライアントクラス"""
     
-    def __init__(self, api_url):
+    def __init__(self, api_url, timeout=30):
         """
         初期化
         
@@ -17,6 +17,7 @@ class LLMClient:
         """
         self.api_url = api_url.rstrip('/')
         self.session = requests.Session()
+        self.timeout = timeout
     
     def health_check(self):
         """
